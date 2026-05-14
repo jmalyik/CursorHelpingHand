@@ -1,16 +1,16 @@
 # 🔌 Cursor Token Saver - MCP Solutions
 
-Csökkentsd le a Cursor AI token fogyasztását intelligens code chunking + semantic search-kel.
+Reduce Cursor AI token consumption with intelligent code chunking + semantic search.
 
-**Két megoldás - válaszd az igényeidhez!**
+**Two solutions - choose what fits your needs!**
 
 ---
 
 ## 📊 Chroma vs Qdrant
 
-| Aspekt | Chroma | Qdrant |
+| Aspect | Chroma | Qdrant |
 |--------|--------|--------|
-| **Setup** | Python lib (~1 parancs) | Docker required |
+| **Setup** | Python lib (~1 command) | Docker required |
 | **Memory** | ~100MB | ~500MB+ |
 | **Scale** | 10-500K docs | 100K-10M+ docs |
 | **Persistence** | Local .db file | Network DB |
@@ -20,9 +20,9 @@ Csökkentsd le a Cursor AI token fogyasztását intelligens code chunking + sema
 
 ---
 
-## 🚀 Gyors Start
+## 🚀 Quick Start
 
-### Option A: Chroma (Ajánlott 125k LOC-hoz)
+### Option A: Chroma (Recommended for 125k LOC)
 
 ```bash
 cd chroma
@@ -31,7 +31,7 @@ python index_repo.py /path/to/repo
 docker compose up
 ```
 
-📖 Részletes: [chroma/README.md](./chroma/README.md)
+📖 Details: [chroma/README.md](./chroma/README.md)
 
 ### Option B: Qdrant (Enterprise)
 
@@ -42,59 +42,59 @@ docker compose up --build
 docker compose exec mcp python index_repo.py /workspace
 ```
 
-📖 Részletes: [qdrant/README.md](./qdrant/README.md)
+📖 Details: [qdrant/README.md](./qdrant/README.md)
 
 ---
 
-## ✨ Features (Mindkettőben)
+## ✨ Features (Both Solutions)
 
-- ✅ Intelligens code chunking (functions, classes, imports)
+- ✅ Intelligent code chunking (functions, classes, imports)
 - ✅ Gemini embeddings (semantic search)
-- ✅ OpenAI-compatible API (Cursor integrálható)
-- ✅ **87% token reduction** nagy repóknál
-- ✅ Java + Python + JS/TS támogatás
+- ✅ OpenAI-compatible API (Cursor integration)
+- ✅ **87% token reduction** for large codebases
+- ✅ Java + Python + JS/TS support
 
 ---
 
 ## 💰 Token Savings
 
 ```
-Cursor nélkül:    ~10,000 token/query
-Chroma/Qdrant:    ~1,300 token/query
-───────────────────────────────────
-Megtakarítás:     87% 🎯
+Without MCP:      ~10,000 tokens/query
+Chroma/Qdrant:    ~1,300 tokens/query
+──────────────────────────────────
+Savings:          87% 🎯
 ```
 
 ---
 
-## 🎯 Melyiket válassza?
+## 🎯 Which One to Choose?
 
-### Válassz **Chroma**-t, ha:
-- 4 repo, 125k LOC
-- Gyors setup kell
-- Nem akar Docker/Qdrant infra
-- Local development
+### Choose **Chroma** if:
+- You have 4 repos, 125k LOC
+- Need fast setup
+- Don't want Docker/Qdrant infrastructure
+- Local development focus
 
-### Válassz **Qdrant**-ot, ha:
-- >500K LOC
-- Enterprise environment
-- Distributed system
-- Skálázható megoldás kell
+### Choose **Qdrant** if:
+- You have >500K LOC
+- Enterprise environment required
+- Distributed system needed
+- Scalability is critical
 
 ---
 
-## 📚 Dokumentáció
+## 📚 Documentation
 
-- [chroma/README.md](./chroma/README.md) - Chroma megoldás
-- [chroma/SETUP.md](./chroma/SETUP.md) - Chroma telepítés
-- [qdrant/README.md](./qdrant/README.md) - Qdrant megoldás
-- [qdrant/ARCHITECTURE.md](./qdrant/ARCHITECTURE.md) - Architektura leírás
+- [chroma/README.md](./chroma/README.md) - Chroma solution
+- [chroma/SETUP.md](./chroma/SETUP.md) - Chroma setup guide
+- [qdrant/README.md](./qdrant/README.md) - Qdrant solution
+- [qdrant/ARCHITECTURE.md](./qdrant/ARCHITECTURE.md) - Architecture overview
 
 ---
 
 ## 🔧 Cursor Integration
 
-Both cases:
+In both cases:
 
 1. **Index repo** (`python index_repo.py /repo`)
 2. **Start MCP** (`docker compose up`)
