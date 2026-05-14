@@ -16,7 +16,7 @@ Reduce Cursor AI token consumption with intelligent code chunking + semantic sea
 | **Persistence** | Local .db file | Network DB |
 | **Deployment** | Simpler infrastructure | Complex setup |
 | **Best for** | **Local dev + 125K LOC** | Enterprise |
-| **Folder** | `./chroma/` | `./qdrant/` |
+| **Folder** | `./chroma-based/` | `./qdrant-based/` |
 
 ---
 
