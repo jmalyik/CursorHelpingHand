@@ -18,6 +18,9 @@ services:
       - GEMINI_API_KEY=${GEMINI_API_KEY}
     depends_on:
       - qdrant
+    volumes:
+      # Mount workspace for indexing
+      - .:/workspace
 
 volumes:
   qdrant_data:

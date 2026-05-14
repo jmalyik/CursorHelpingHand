@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+
+  mcp:
+    build: ./mcp
+    ports:
+      - "8000:8000"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    volumes:
+      - ./.chroma:/app/.chroma
+      - ./:/workspace  # For potential repo scanning
+
+volumes:
+  # Chroma data persists in ./.chroma directory

@@ -20,9 +20,22 @@ def ask(query: str) -> str:
         r.raise_for_status()
         data = r.json()
 
-        # OpenAI-style response parsing
-        return data["choices"][0]["message"]["content"]
+        # OpenAI-compatible response parsing
+        if "choices" in data and len(data["choices"]) > 0:
+            message = data["choices"][0].get("message", {})
+            content = message.get("content", "")
+            if content:
+                return content
+        
+        # Fallback if response structure is unexpected
+        return f"Unexpected response format: {json.dumps(data)}"
 
+    except requests.exceptions.ConnectionError:
+        return "ERROR: Cannot connect to MCP proxy. Is it running on port 8000?"
+    except requests.exceptions.Timeout:
+        return "ERROR: Request timeout. LLM response took too long."
+    except json.JSONDecodeError:
+        return "ERROR: Invalid JSON response from proxy."
     except Exception as e:
         return f"ERROR: {str(e)}"
 

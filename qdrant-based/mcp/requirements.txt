@@ -1,0 +1,4 @@
+fastapi
+uvicorn
+requests
+qdrant-client>=2.7.0

@@ -2,7 +2,7 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# system deps (biztonságos baseline)
+# system deps
 RUN apt-get update && apt-get install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
@@ -13,6 +13,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # app
 COPY server.py /app/server.py
+COPY repo_indexer.py /app/repo_indexer.py
+COPY chroma.py /app/chroma.py
 
 EXPOSE 8000
 
