@@ -26,25 +26,25 @@ Reduce Cursor AI token consumption with intelligent code chunking + semantic sea
 
 **Indexing + Server:**
 ```bash
-cd chroma
+cd chroma-based
 export GEMINI_API_KEY="sk-..."
 python index_repo.py /path/to/repo    # Python: parse & embed
 docker compose up                      # Docker: start server
 ```
 
-📖 Details: [chroma/README.md](./chroma/README.md)
+📖 Details: [chroma-based/README.md](./chroma-based/README.md)
 
 ### Option B: Qdrant (Enterprise)
 
 **Server + Indexing:**
 ```bash
-cd qdrant
+cd qdrant-based
 export GEMINI_API_KEY="sk-..."
 docker compose up --build              # Docker: Qdrant + MCP
 docker compose exec mcp python index_repo.py /workspace
 ```
 
-📖 Details: [qdrant/README.md](./qdrant/README.md)
+📖 Details: [qdrant-based/README.md](./qdrant-based/README.md)
 
 ---
 
@@ -87,10 +87,10 @@ Savings:          87% 🎯
 
 ## 📚 Documentation
 
-- [chroma/README.md](./chroma/README.md) - Chroma solution
-- [chroma/SETUP.md](./chroma/SETUP.md) - Chroma setup guide
-- [qdrant/README.md](./qdrant/README.md) - Qdrant solution
-- [qdrant/ARCHITECTURE.md](./qdrant/ARCHITECTURE.md) - Architecture overview
+- [chroma-based/README.md](./chroma-based/README.md) - Chroma solution
+- [chroma-based/SETUP.md](./chroma-based/SETUP.md) - Chroma setup guide
+- [qdrant-based/README.md](./qdrant-based/README.md) - Qdrant solution
+- [qdrant-based/ARCHITECTURE.md](./qdrant-based/ARCHITECTURE.md) - Architecture overview
 
 ---
 
@@ -114,7 +114,7 @@ In both cases:
 
 | | Chroma | Qdrant |
 |---|---|---|
-| **Repository** | `./chroma/` | `./qdrant/` |
+| **Repository** | `./chroma-based/` | `./qdrant-based/` |
 | **Status** | ✅ Production Ready | ✅ Production Ready |
 | **For you?** | **← START HERE** | Advanced users |
 
