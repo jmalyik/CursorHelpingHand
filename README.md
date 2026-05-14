@@ -10,11 +10,11 @@ Reduce Cursor AI token consumption with intelligent code chunking + semantic sea
 
 | Aspect | Chroma | Qdrant |
 |--------|--------|--------|
-| **Setup** | Python lib (~1 command) | Docker required |
+| **Setup** | Indexing: Python, Server: Docker | Docker only |
 | **Memory** | ~100MB | ~500MB+ |
 | **Scale** | 10-500K docs | 100K-10M+ docs |
 | **Persistence** | Local .db file | Network DB |
-| **Deployment** | Simple (copy file) | Complex |
+| **Deployment** | Simpler infrastructure | Complex setup |
 | **Best for** | **Local dev + 125K LOC** | Enterprise |
 | **Folder** | `./chroma/` | `./qdrant/` |
 
@@ -24,21 +24,23 @@ Reduce Cursor AI token consumption with intelligent code chunking + semantic sea
 
 ### Option A: Chroma (Recommended for 125k LOC)
 
+**Indexing + Server:**
 ```bash
 cd chroma
 export GEMINI_API_KEY="sk-..."
-python index_repo.py /path/to/repo
-docker compose up
+python index_repo.py /path/to/repo    # Python: parse & embed
+docker compose up                      # Docker: start server
 ```
 
 📖 Details: [chroma/README.md](./chroma/README.md)
 
 ### Option B: Qdrant (Enterprise)
 
+**Server + Indexing:**
 ```bash
 cd qdrant
 export GEMINI_API_KEY="sk-..."
-docker compose up --build
+docker compose up --build              # Docker: Qdrant + MCP
 docker compose exec mcp python index_repo.py /workspace
 ```
 
@@ -71,14 +73,14 @@ Savings:          87% 🎯
 
 ### Choose **Chroma** if:
 - You have 4 repos, 125k LOC
-- Need fast setup
-- Don't want Docker/Qdrant infrastructure
+- Don't need Qdrant infrastructure
+- Prefer lighter vector DB (~100MB memory)
 - Local development focus
 
 ### Choose **Qdrant** if:
 - You have >500K LOC
 - Enterprise environment required
-- Distributed system needed
+- Need distributed vector database
 - Scalability is critical
 
 ---
